@@ -40,10 +40,19 @@ for page in range(400):
         topic_name = topic_name.replace("," , "  ")
 
         author = container.find("div" , {"class" : "desc"})
-        author_name = author.text
+        try:
+            author_name = author.text
+        except :
+            author_name = "not Available"
+          
+
         author_name = author_name.replace("," , "  ")
 
-        url = topic.a["href"]
+        try:
+            url = topic.a["href"]
+        except print(0):
+            url = "not Available"
+        
 
         f.write(topic_name+","+author_name+","+url+"\n")
 

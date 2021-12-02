@@ -1,0 +1,16 @@
+from bs4 import BeautifulSoup as soup 
+from urllib.request import urlopen as ureq
+from selenium import webdriver
+import os 
+chromedriver = "/usr/bin/chromedriver"
+os.environ["webdriver.chrome.driver"] = chromedriver
+
+
+driver = webdriver.Chrome(chromedriver)
+
+my_url='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5677444/'
+base_url = 'https://www.ncbi.nlm.nih.gov'
+driver.get(my_url)
+content=driver.page_source
+abstract_container = content.find("p" , {"class": "p p-first-last"})
+print(abstract_containt)
